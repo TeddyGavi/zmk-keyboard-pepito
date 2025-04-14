@@ -1,0 +1,16 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config SHIELD_CLICKETY_SPLIT_PEPITO
+    bool
+
+config SHIELD_CLICKETY_SPLIT_PEPITO_LEFT
+    def_bool $(shields_list_contains,clickety_split_pepito_left)
+    select SHIELD_CLICKETY_SPLIT_PEPITO
+    select ZMK_SPLIT
+    select ZMK_SPLIT_ROLE_CENTRAL
+
+config SHIELD_CLICKETY_SPLIT_PEPITO_RIGHT
+    def_bool $(shields_list_contains,clickety_split_pepito_right)
+    select SHIELD_CLICKETY_SPLIT_PEPITO
+    select ZMK_SPLIT

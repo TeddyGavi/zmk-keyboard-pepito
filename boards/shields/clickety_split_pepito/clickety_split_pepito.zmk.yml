@@ -1,0 +1,12 @@
+file_format: "1"
+id: clickety_split_pepito
+name: Pepito
+type: shield
+url: https://clicketysplit.ca/pages/pepito
+requires: [seeed_xiao]
+features:
+  - keys
+  - display
+siblings:
+  - clickety_split_pepito_left
+  - clickety_split_pepito_right
