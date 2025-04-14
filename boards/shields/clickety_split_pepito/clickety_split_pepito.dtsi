@@ -44,9 +44,7 @@
     aliases {
         nice_view_spi = &xiao_spi;
     };
-};
 
-/ {
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
