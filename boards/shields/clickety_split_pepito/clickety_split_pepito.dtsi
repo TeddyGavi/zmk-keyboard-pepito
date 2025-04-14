@@ -42,7 +42,7 @@
 
 / {
     aliases {
-        nice_view_spi = &ls0xx;
+        nice_view_spi = &xiao_spi;
     };
 };
 
