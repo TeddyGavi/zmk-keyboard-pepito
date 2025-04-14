@@ -41,9 +41,9 @@
 };
 
 / {
-    alias {
-      nice_view_spi = &ls0xx;
-    }
+    aliases {
+        nice_view_spi = &ls0xx;
+    };
 };
 
 / {
