@@ -3,35 +3,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-/* &pinctrl { */
-/*     spi0_default: spi0_default { */
-/*         group1 { */
-/*             psels = <NRF_PSEL(SPIM_SCK, 1, 13)>, */
-/*                 <NRF_PSEL(SPIM_MOSI, 1, 15)>; */
-/*         }; */
-/*     }; */
-/*     spi0_sleep: spi0_sleep { */
-/*         group1 { */
-/*             psels = <NRF_PSEL(SPIM_SCK, 1, 13)>, */
-/*                 <NRF_PSEL(SPIM_MOSI, 1, 15)>; */
-/*             low-power-enable; */
-/*         }; */
-/*     }; */
-/* }; */
-/**/
-/**/
-/* nice_view_spi: &spi0 { */
-/*     compatible = "nordic,nrf-spim"; */
-/*     pinctrl-0 = <&spi0_default>; */
-/*     pinctrl-1 = <&spi0_sleep>; */
-/*     pinctrl-names = "default", "sleep"; */
-/*     cs-gpios = <&xiao_d 7 GPIO_ACTIVE_LOW>, <&xiao_d 6 GPIO_ACTIVE_HIGH>; */
-/* }; */
-/**/
-/* &xiao_i2c { status = "disabled"; }; */
-/* &xiao_serial { status = "disabled"; }; */
-/**/
-
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -48,8 +19,9 @@
     };
 };
 
-&xiao_spi {
-    status = "okay";
+
+nice_view_spi: &spi0 {
+    compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
@@ -58,3 +30,5 @@
 
 &xiao_i2c { status = "disabled"; };
 &xiao_serial { status = "disabled"; };
+
+
