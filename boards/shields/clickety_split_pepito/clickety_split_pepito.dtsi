@@ -5,8 +5,8 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
-/* &xiao_i2c { status = "disabled"; }; */
-/* &xiao_serial { status = "disabled"; }; */
+&xiao_i2c { status = "disabled"; };
+&xiao_serial { status = "disabled"; };
 
 nice_view_spi: &xiao_spi {
     /* status = "okay"; */
@@ -15,6 +15,8 @@ nice_view_spi: &xiao_spi {
     /* pinctrl-1 = <&spi0_sleep>; */
     /* pinctrl-names = "default", "sleep"; */
     /* cs-gpios = <&xiao_d 7 GPIO_ACTIVE_LOW>, <&xiao_d 6 GPIO_ACTIVE_HIGH>; */
+    status = "okay";
+    cs-gpios = <&xiao_d 7 GPIO_ACTIVE_LOW>, <&xiao_d 6 GPIO_ACTIVE_HIGH>;
 
     shifter: 595@0 {
         compatible = "zmk,gpio-595";
@@ -27,20 +29,20 @@ nice_view_spi: &xiao_spi {
     };
 
     /* ls0xx: ls0xx@1 { */
-    /*     compatible = "sharp,ls0xx"; */
-    /*     spi-max-frequency = <1000000>; */
-    /*     reg = <1>; */
-    /*     width = <160>; */
-    /*     height = <68>; */
-    /* }; */
+    /*       compatible = "sharp,ls0xx"; */
+    /*       spi-max-frequency = <1000000>; */
+    /*       reg = <1>; */
+    /*       width = <160>; */
+    /*       height = <68>; */
+    /*   }; */
 
-    /* nice_view: ls0xx@0 { */
-    /*     compatible = "sharp,ls0xx"; */
-    /*     reg = <0>; */
-    /*     spi-max-frequency = <1000000>; */
-    /*     width = <160>; */
-    /*     height = <68>; */
-    /* }; */
+    nice_view: ls0xx@1 {
+        compatible = "sharp,ls0xx";
+        reg = <0>;
+        spi-max-frequency = <1000000>;
+        width = <160>;
+        height = <68>;
+    };
 };
 
 / {
@@ -48,7 +50,7 @@ nice_view_spi: &xiao_spi {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
         /* zephyr,display = &ls0xx; */
-        /* zephyr,display = &nice_view; */
+        zephyr,display = &nice_view;
     };
 
     default_transform: keymap_transform_0 {
